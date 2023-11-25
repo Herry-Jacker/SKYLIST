@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing_APP</title>
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JS/bootstrap.bundle.js"></script>
+</head>
+<body class="main_bg">
+    <div class="preloader">
+        <h1 class="loader position-absolute top-50 start-50 translate-middle">SKY LIST</h1>
+    </div>
+    <header>
+        <nav class="navbar head-nav container py-0 py-md-2">
+            <div class="d-block width-50 d-md-none">
+                <span class="toggle_menu"><span></span></span>
+            </div>
+            <div class="logo">
+                <h1 class="h4 py-2 mb-0 fw-bold">
+                    <a href="#" class="text-decoration-none text-light">
+                        <span class="text-danger">SKY</span>LIST
+                    </a>
+                </h1>
+            </div>
+            <div class="flex-fill d-none d-md-block"></div>
+            <div class="navbar nav fw-bold">
+                <li class="nav-item d-none d-md-block dropdown dropdown-hover">
+                    <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="./index.html">Todo List</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main " href="./about.html">About</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main " href="./contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow-lg bg-transparent px-2">
+                        <button class="btn secondary-bg dropdown-item restart-btn text-light"><i class="fas fa-arrows-rotate me-2"></i>Restart All Data</button>
+                    </div>
+                </li>
+            </div>
+        </nav>
+        <nav class="mobile-nav main_bg d-md-none">
+            <ul>
+                <p class="text-main mb-0">Todo List</p>
+                <li class="text-main">
+                    <a href="./index.html"><i class="pe-2"></i>Today</a>
+                </li>
+                <li class="text-main">
+                    <a href="./upcomming.html"><i class="pe-2"></i>Upcomming</a>
+                </li>
+                <li class="active">
+                    <a href="./plan_list.html"><i class="pe-2"></i>Plan List</a>
+                </li>
+                <p> </p>
+                <li class="mt-5 text-main">
+                    <a href="./about.html"><i class="pe-2"></i>About</a>
+                </li>
+                <li class="text-main">
+                    <a href="./contact.html"><i class="pe-2"></i>Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content sticky-effect text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit Plan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Plan Title</label>
+                        <input type="text" class="form-control edit-title" required>
+                        <p class="text-danger invalid2"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Description</label>
+                        <textarea class="form-control edit-descrip"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn secondary-bg text-light" id="editPlan">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="todo" style="min-height: 100vh;">
+        <div class="container" style="max-width: 600px; margin-top: 100px;">
+            <div>
+                <h1 class="text-light fw-bold">
+                    <span class="title"></span>
+                    <span class="badge bg-danger ms-2 fs-6 position-absolute mt-2">0</span>
+                    <span class="fs-5 float-end mt-2"><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" class="fas fa-pen-to-square float-end fs-6 pe-2 me-2 fs-4 edit text-decoration-none"></a></span>
+                </h1>
+            </div>
+        </div>
+        <div class="container" style="max-width: 600px;">
+            <hr class="divider m-0">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./plan_list.html" class="text-decoration-none breadcrumb-link text-main">Plan list</a></li>
+                    <li class="breadcrumb-item active breadTitle" aria-current="page"></li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container mt-5 mb-3" style="max-width: 600px;">
+            <span class="text-main descrip"></span>
+        </div>
+        <div class="container" style="max-width: 600px;">
+            <div class="input-group mt-4">
+                <input class="form-control task-value" type="text" required placeholder="Enter task">
+                <button class="input-item btn text-light secondary-bg add-task">Add Task</button>
+            </div>
+            <ul class="list-group mt-5" id="#todo"></ul>
+            <div class="navbar nav completed">
+                <span class="done_badge text-light">You have 0 task completed!</span>
+                <a href="#" class="nav-link" id="clear">Clear</a>
+            </div>
+            <ul class="list-group mb-5" id="#done"></ul>
+        </div>
+    </section>
+
+
+    <script type="module" src="./JS/plan_details.js"></script>
+    <script src="./JS/app.js"></script>
+</body>
+</html>

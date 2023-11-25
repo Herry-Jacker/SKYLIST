@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing_APP</title>
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JS/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('kOnBGFKi2qkd4RYgZ');
+        })();
+    </script>
+</head>
+<body class="main_bg">
+    <div class="preloader">
+        <h1 class="loader position-absolute top-50 start-50 translate-middle">SKY LIST</h1>
+    </div>
+    <header>
+        <nav class="navbar head-nav container py-0 py-md-2">
+            <div class="d-block width-50 d-md-none">
+                <span class="toggle_menu"><span></span></span>
+            </div>
+            <div class="logo">
+                <h1 class="h4 py-2 mb-0 fw-bold">
+                    <a href="#" class="text-decoration-none text-light">
+                        <span class="text-danger">SKY</span>LIST
+                    </a>
+                </h1>
+            </div>
+            <div class="flex-fill d-none d-md-block"></div>
+            <div class="navbar nav fw-bold">
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main"  href="./index.html">Todo List</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main " href="./about.html">About</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link active text-main " href="./contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow-lg bg-transparent px-2">
+                        <button class="btn secondary-bg dropdown-item text-light restart-btn"><i class="fas fa-arrows-rotate me-2"></i>Restart All Data</button>
+                    </div>
+                </li>
+            </div>
+        </nav>
+        <nav class="mobile-nav main_bg d-md-none">
+            <ul>
+                <p class="text-main mb-0">Todo List</p>
+                <li class="text-main">
+                    <a href="./index.html"><i class="pe-2"></i>Today</a>
+                </li>
+                <li class="text-main">
+                    <a href="./upcomming.html"><i class="pe-2"></i>Upcomming</a>
+                </li>
+                <li class="text-main">
+                    <a href="./plan_list.html"><i class="pe-2"></i>Plan List</a>
+                </li>
+                <p> </p>
+                <li class="mt-5 text-main">
+                    <a href="./about.html"><i class="pe-2"></i>About</a>
+                </li>
+                <li class="active">
+                    <a href="./contact.html"><i class="pe-2"></i>Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="todo">
+        <div class="container mb-5" style="max-width: 600px; margin-top: 100px;">
+            <div class="mb-5">
+                <h1 class="text-light fw-bold">Contact Us</h1>
+            </div>
+            <div>
+                <p class="text-main mt-2 mb-4">Feel free us any time. We will get back to you as soon as we can.</p>
+            </div>
+            <form id="contact-form">
+                <div class="mb-3">
+                    <input type="hidden" name="contact_number">
+                    <label for="" class="form-label text-main">Your Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your full name" name="user_name" id="user_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label text-main">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email address" name="user_email" id="user_email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label text-main">Message</label>
+                    <textarea type="text" class="form-control" cols="30" rows="2" placeholder="Enter your message" name="message" id="message" required></textarea>
+                </div>
+                <input type="submit" class="btn secondary-bg text-light mb-3 w-100" value="Submit">
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm("service_msk9dxy","template_l3ath6p", this)
+                    .then(function(res) {
+                        document.getElementById("user_name").value = "";
+                        document.getElementById("user_email").value = "";
+                        document.getElementById("message").value = "";
+                        alert("success! " + res.status);
+                    }, function(error) {
+                        alert("error! " + error);
+                    });
+            });
+        }
+    </script>
+    <script src="./JS/app.js"></script>
+</body>
+</html>

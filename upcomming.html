@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing_APP</title>
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JS/bootstrap.bundle.js"></script>
+</head>
+<body class="main_bg">
+    <div class="preloader">
+        <h1 class="loader position-absolute top-50 start-50 translate-middle">SKY LIST</h1>
+    </div>
+    <header>
+        <nav class="navbar head-nav container py-0 py-md-2">
+            <div class="d-block width-50 d-md-none">
+                <span class="toggle_menu"><span></span></span>
+            </div>
+            <div class="logo">
+                <h1 class="h4 py-2 mb-0 fw-bold">
+                    <a href="#" class="text-decoration-none text-light">
+                        <span class="text-danger">SKY</span>LIST
+                    </a>
+                </h1>
+            </div>
+            <div class="flex-fill d-none d-md-block"></div>
+            <div class="navbar nav fw-bold">
+                <li class="nav-item d-none d-md-block dropdown dropdown-hover">
+                    <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="">Todo List</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main " href="./about.html">About</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link text-main " href="./contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow-lg bg-transparent px-2">
+                        <button class="btn secondary-bg dropdown-item restart-btn text-light"><i class="fas fa-arrows-rotate me-2"></i>Restart All Data</button>
+                    </div>
+                </li>
+            </div>
+        </nav>
+        <nav class="mobile-nav main_bg d-md-none">
+            <ul>
+                <p class="text-main mb-0">Todo List</p>
+                <li class="text-main">
+                    <a href="./index.html"><i class="pe-2"></i>Today</a>
+                </li>
+                <li class="active">
+                    <a href="./upcomming.html"><i class="pe-2"></i>Upcomming</a>
+                </li>
+                <li class="text-main">
+                    <a href="./plan_list.html"><i class="pe-2"></i>Plan List</a>
+                </li>
+                <p> </p>
+                <li class="mt-5 text-main">
+                    <a href="./about.html"><i class="pe-2"></i>About</a>
+                </li>
+                <li class="text-main">
+                    <a href="./contact.html"><i class="pe-2"></i>Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="todo">
+        <div class="container" style="max-width: 600px; margin-top: 100px;">
+            <div>
+                <h1 class="text-light fw-bold">Upcoming 30 days!</h1>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container" style="max-width: 600px;">
+                <ul class="navbar nav g-3">
+                    <li class="nav-item me-2 me-sm-4">
+                        <a href="./index.html" class="nav-link text-main">
+                            Today
+                            <span class="badge today-count bg-danger ms-2">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item me-2 me-sm-4">
+                        <a href="" class="nav-link active">
+                            Upcomming
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./plan_list.html" class="nav-link text-main">
+                            Undate Plan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container mt-3 mb-5" id="dateContainer" style="max-width: 600px;">
+            
+        </div>
+    </section>
+    <script src="./JS/upcomming.js"></script>
+    <script src="./JS/app.js"></script>
+</body>
+</html>
